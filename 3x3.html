@@ -44,11 +44,11 @@
             <div>8</div>
             <div>9</div>
         </div>
-        <button onclick="kever()">Keverés</button>
+        <button onclick="random()">Keverés</button>
     </div>
 
     <script>
-        function kever() {
+        function random() {
             const numberGrid = document.getElementById('numberGrid');
             let numbers = Array.from(Array(9).keys()).map(i => i + 1);
             numbers.sort(() => Math.random() - 0.5);
