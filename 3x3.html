@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3x3 számkeverés</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 50px);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .grid div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="grid" id="numberGrid">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+        </div>
+        <button onclick="kever()">Keverés</button>
+    </div>
+
+    <script>
+        function kever() {
+            const numberGrid = document.getElementById('numberGrid');
+            let numbers = Array.from(Array(9).keys()).map(i => i + 1);
+            numbers.sort(() => Math.random() - 0.5);
+
+            numberGrid.innerHTML = '';
+            numbers.forEach(num => {
+                const div = document.createElement('div');
+                div.textContent = num;
+                numberGrid.appendChild(div);
+            });
+        }
+    </script>
+</body>
+</html>
